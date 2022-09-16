@@ -30,7 +30,7 @@ contract ERC20 {
         balances[msg.sender] = 100 ether;
     }
 
-function name() public view returns (string memory){
+    function name() public view returns (string memory){
         return _name;
     }
 
