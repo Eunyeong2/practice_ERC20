@@ -2,7 +2,9 @@
 
 pragma solidity ^0.8.0;
 
-contract ERC20 {
+import "./EIP712.sol";
+
+contract ERC20 is EIP712 { 
 
     bytes32 private DOMAIN_SEPARATOR;
     ERC20 drm;
@@ -48,14 +50,6 @@ contract ERC20 {
 
     function balanceOf(address _owner) public view returns (uint256){
         return balances[_owner];
-    }
-
-    function _domainSeparator() public view returns (bytes32) {
-        return DOMAIN_SEPARATOR;
-    }
-    
-    function _toTypedDataHash(bytes32 structHash) public pure returns (bytes32) {
-        return keccak256(abi.encodePacked(structHash));
     }
 
     function _mint(address _from, uint256 _value) public {
