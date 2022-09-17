@@ -5,8 +5,7 @@ pragma solidity ^0.8.0;
 import "./EIP712.sol";
 
 contract ERC20 is EIP712 { 
-
-    bytes32 private DOMAIN_SEPARATOR;
+    
     ERC20 drm;
 
     mapping(address => uint256) private _nonces;
@@ -24,7 +23,7 @@ contract ERC20 is EIP712 {
 
     bytes32 _hash = keccak256("Permit(address owner,address spender,uint256 value,uint256 nonce,uint256 deadline)");
 
-    constructor(string memory name, string memory version) {
+    constructor(string memory name, string memory version){
         _name = name;
         _symbol = version;
         _decimal = 18;
